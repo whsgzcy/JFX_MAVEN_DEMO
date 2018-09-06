@@ -6,6 +6,13 @@ public class Student {
 	private String age;
 	private String love;
 
+	public Student(String name, String age, String love) {
+		super();
+		this.name = name;
+		this.age = age;
+		this.love = love;
+	}
+
 	public String getName() {
 		return name;
 	}

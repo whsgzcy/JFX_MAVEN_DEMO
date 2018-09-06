@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<BorderPane fx:id="layout" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <Label fx:id="label1" text="Label" BorderPane.alignment="CENTER" />
+   </top>
+   <left>
+      <Label fx:id="label2" text="Label" BorderPane.alignment="CENTER" />
+   </left>
+   <center>
+      <Label fx:id="label3" text="Label" BorderPane.alignment="CENTER" />
+   </center>
+   <right>
+      <Label fx:id="label4" text="Label" BorderPane.alignment="CENTER" />
+   </right>
+   <bottom>
+      <Label fx:id="label5" text="Label" BorderPane.alignment="CENTER" />
+   </bottom>
+</BorderPane>
