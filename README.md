@@ -1,57 +1,27 @@
 # 前言
-1、本仓库所有的RP都是使用Axure
+1、本项目是基于JavaFX，开源项目有JFoenix
 
-2、本仓库包含的内容有 RP、PPT **(xxx.pptx在合肥工业大学学术报告厅演讲)** 、PSD、线路图、文档、方案
+2、这是项目需要一个桌面的管理端，用HTML，说实话，用Java写我更擅长点
 
-3、可能比较乱，我只选出还能看的设计在.md文件中展示
+3、网上JavaFx资料相对于Android来说，少的就像波多野结衣的骑兵种子一样
 
-## 1、流程表达Custom
-其实这样写不严谨，但是省时间，表达的效果要更好一点
+4、项目的第一版本全是阅读源码，全用Java，导致产生事件给控件赋值都需要几层循环遍历，找到对应Node，强制转换，很恶心
 
-![custom image](https://github.com/whsgzcy/Design_To_MySelf_ATW/blob/master/images/ros.png)
+5、项目第二版本是采用了Scene Builder，也对此组件进行业务上的封装，瞬间爽多了
 
-## 2、客户端设计第三版
-在B端的项目里面过多的以C端的思维去设计，结果管理端不像管理端、APP不像APP，后续会有第四版，用设计B端的设计思维去设计
+6、最后就是总结，总结在此过程中遇到的问题，1、2、3标注在底下
 
-![custom image](https://github.com/whsgzcy/Design_To_MySelf_ATW/blob/master/images/%E5%AE%A2%E6%88%B7%E7%AB%AF3.png)
+7、吐槽一下，JavaFx的资料在网上千篇一律，有人还好意思录制了视频，都是API的资料，你就不能植入自己的需求，讲自己的东西啊，都是站在巨人的肩膀上干活，你特娘的就不能有点创新意识啊！Fuck them.
 
-## 3、客户端设计第四版
-加入IM
+## 1、字体设置不了Bold
+这个问题也困扰了我两天，后来我在stackflow上看到也有人why，后来就找到Oracle官网上看到这是JDK8的bug，也感谢群友，pengzhaoqiang@qq.com，提供了他电脑可运行jdk版本(1.8.0_181)这才解决了问题;
 
-![custom image](https://github.com/whsgzcy/Design_To_MySelf_ATW/blob/master/images/%E5%AE%A2%E6%88%B7%E7%AB%AF4.0.png)
+## 2、ListView Custom Cell
+这个呢，在API文档中有说明，在资源中也有，我之前不了解的是，每个FXML文件都要有个Controller，不能像Android中，inFlxxxx(xml)，这个操作在API中没有，这个操作也是我翻墙在老外的博客中找到的；
 
-使用说明
+## 3、想翻墙找我
+确实，Google搜出的东西确实要比百度多的多的多，同样是中文资料也比百度准确的多，我的邮箱在我GitHub主页，我会把工具发送过来；
 
-![custom image](https://github.com/whsgzcy/Design_To_MySelf_ATW/blob/master/images/%E5%AE%A2%E6%88%B7%E7%AB%AF4.0%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E.png)
+## 4、翻墙注意
+翻墙你会看到各种乱七八糟的东西，什么美国之音、阿波罗新闻网、大纪元、郭文贵等等等，之前我也感兴趣，也总是感叹中国好黑暗，但是看多了，就发现都是故意黑，看看就行，别当真，还有，要想真的客观的了解外国媒体怎么看待中国的时政，可以上纽约时报这些全球知名的媒体，上面讲的内容感觉就很公道；
 
-## 4、客户端设计第四-1版
-删去IM，加入server主动触发
-
-![custom image](https://github.com/whsgzcy/Design_To_MySelf_ATW/blob/master/images/%E5%AE%A2%E6%88%B7%E7%AB%AF4.1.png)
-
-使用说明
-
-![custom image](https://github.com/whsgzcy/Design_To_MySelf_ATW/blob/master/images/%E5%AE%A2%E6%88%B7%E7%AB%AF4.1%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E.png)
-
-## 5、设备端设计第四版
-
-![custom image](https://github.com/whsgzcy/Design_To_MySelf_ATW/blob/master/images/%E8%AE%BE%E5%A4%87%E7%AB%AF4.0.png)
-
-## 6、应用场景Custom
-为什么设计这样的图？是因为我要和非行业的人去沟通，我要告诉他机器是怎么运行的，非行业客户不会告诉你我的需求是什么，而是需要我们去发现，去提、去尝试，比如，“你看，如果这样做怎么样？”，其实前者是在一个大的需求里面逐个去优化的过程
-
-![custom image](https://github.com/whsgzcy/Design_To_MySelf_ATW/blob/master/images/%E6%A8%A1%E5%9E%8B1.png)
-
-## 7、验证码业务
-两个区别：
-
-1、设备与server之间的通信是基于node，非tcp/udp/http
-
-2、这里客户端与设备的交互统一交由server，其中客户端A与设备A之间的直线只是为了说明人从客户端A读取验证码在设备端进行输入设备端从server中得到验证从而继续后面的业务
-
-![custom image](https://github.com/whsgzcy/Design_To_MySelf_ATW/blob/master/images/%E9%AA%8C%E8%AF%81%E7%A0%81%E6%97%B6%E5%BA%8F%E5%9B%BE.png)
-
-## 8、管理端
-管理端1.0设计，基于jfx
-
-![custom image](https://github.com/whsgzcy/Design_To_MySelf_ATW/blob/master/images/server.png)
