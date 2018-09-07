@@ -1,5 +1,6 @@
 package com.iwant.test;
 
+import java.awt.GraphicsEnvironment;
 import java.io.IOException;
 
 import javafx.fxml.FXML;
@@ -28,6 +29,10 @@ public class StudentListViewCell extends ListCell<Student> {
 	@Override
 	protected void updateItem(Student student, boolean empty) {
 		super.updateItem(student, empty);
+		
+		 // 获取系统字体列表
+        GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+        String[] fontNames = ge.getAvailableFontFamilyNames();
 
 		if (empty || student == null) {
 
