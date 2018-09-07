@@ -13,8 +13,8 @@
 
 7、吐槽一下，JavaFx的资料在网上千篇一律，有人还好意思录制了视频，都是API的资料，你就不能植入自己的需求，讲自己的东西啊，都是站在巨人的肩膀上干活，你特娘的就不能有点创新意识啊！Fuck them.
 
-## 1、字体设置不了Bold
-这个问题也困扰了我两天，后来我在stackflow上看到也有人why，后来就找到Oracle官网上看到这是JDK8的bug，也感谢群友，pengzhaoqiang@qq.com，提供了他电脑可运行jdk版本(1.8.0_181)这才解决了问题;
+## 1、字体设置不了Bold（中文不支持）
+这个问题也困扰了我两天，后来我在stackflow上看到也有人why，后来就找到Oracle官网上看到这是JDK8的bug，也感谢群友，pengzhaoqiang@qq.com，提供了他电脑可运行jdk版本(1.8.0_181)这才解决了问题，https://bugs.openjdk.java.net/browse/JDK-8127134 这个已经open了6年都没有解决;
 
 ## 2、ListView Custom Cell
 这个呢，在API文档中有说明，在资源中也有，我之前不了解的是，每个FXML文件都要有个Controller，不能像Android中，inFlxxxx(xml)，这个操作在API中没有，这个操作也是我翻墙在老外的博客中找到的；
