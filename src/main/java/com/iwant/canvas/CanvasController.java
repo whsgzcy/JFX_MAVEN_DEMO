@@ -59,9 +59,10 @@ public class CanvasController {
 			return;
 		}
 
-
-		cx = Double.parseDouble(x);
-		cy = Double.parseDouble(y);
+		// 按照自己的需求进行绘制
+		// 真实数据的坐标系原点是此canvas的中心点
+		cx = Double.parseDouble(x) * 20 + 400;
+		cy = 400 - Double.parseDouble(y) * 20;
 
 		GraphicsContext gc = canvas2.getGraphicsContext2D();
 
