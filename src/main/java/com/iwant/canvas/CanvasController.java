@@ -59,6 +59,7 @@ public class CanvasController {
 			return;
 		}
 
+
 		cx = Double.parseDouble(x);
 		cy = Double.parseDouble(y);
 
