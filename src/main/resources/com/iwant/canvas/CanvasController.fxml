@@ -7,10 +7,11 @@
 
 <Pane fx:id="pane" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.iwant.canvas.CanvasController">
    <children>
-      <Canvas fx:id="canvas" height="800.0" width="800.0" />
+      <Canvas fx:id="canvas1" height="800.0" width="800.0" />
+      <Canvas fx:id="canvas2" height="800.0" width="800.0" />
       <Button fx:id="click" layoutX="658.0" layoutY="54.0" mnemonicParsing="false" onMouseClicked="#OnClick" text="绘制背景" />
       <TextField layoutX="437.0" layoutY="54.0" fx:id="x_" />
       <TextField fx:id="y_" layoutX="437.0" layoutY="113.0" />
-      <Button layoutX="658.0" layoutY="113.0" mnemonicParsing="false" text="绘制坐标" />
+      <Button fx:id="drawPoint" layoutX="658.0" layoutY="113.0" mnemonicParsing="false" onMouseClicked="#onDrawPoint" text="绘制坐标" />
    </children>
 </Pane>

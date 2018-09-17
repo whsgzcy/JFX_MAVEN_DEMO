@@ -15,7 +15,11 @@ public class CanvasController {
 	@FXML
 	private Button click;
 	@FXML
-	private Canvas canvas;
+	private Button drawPoint;
+	@FXML
+	private Canvas canvas1;
+	@FXML
+	private Canvas canvas2;
 	@FXML
 	private TextField x_;
 	@FXML
@@ -23,17 +27,55 @@ public class CanvasController {
 	@FXML
 	private Pane pane;
 
-	private Image bg;
+	private Image mPoint;
+
+	double lx = -1;
+	double ly = -1;
+
+	double cx = -1;
+	double cy = -1;
 
 	@FXML
 	public void OnClick() {
-		GraphicsContext gc = canvas.getGraphicsContext2D();
-		bg = new Image(getClass().getResource("map1.png").toString());
+		GraphicsContext gc = canvas1.getGraphicsContext2D();
+		Image bg = new Image(getClass().getResource("map1.png").toString());
 		gc.drawImage(bg, 0, 0);
-//		drawShapes(gc);
+
+		if (mPoint == null) {
+			mPoint = new Image(getClass().getResource("center.png").toString());
+		}
 	}
 
+	@FXML
+	public void onDrawPoint() {
 
+		if (mPoint == null)
+			return;
+
+		String x = x_.getText();
+		String y = y_.getText();
+
+		if (x.equals("") || y.equals("")) {
+			return;
+		}
+
+		cx = Double.parseDouble(x);
+		cy = Double.parseDouble(y);
+
+		GraphicsContext gc = canvas2.getGraphicsContext2D();
+
+		if (lx != -1 && ly != -1) {
+
+			gc.clearRect(lx, ly, mPoint.getWidth(), mPoint.getHeight());
+		}
+
+		gc.drawImage(mPoint, cx, cy);
+
+		gc.rect(lx, ly, mPoint.getWidth(), mPoint.getHeight());
+
+		lx = cx;
+		ly = cy;
+	}
 
 	private void drawShapes(GraphicsContext gc) {
 		gc.setFill(Color.GREEN);
