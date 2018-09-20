@@ -38,7 +38,7 @@ public class CanvasController {
 	@FXML
 	public void OnClick() {
 		GraphicsContext gc = canvas1.getGraphicsContext2D();
-		Image bg = new Image(getClass().getResource("map1.png").toString());
+		Image bg = new Image(getClass().getResource("map3.png").toString());
 		gc.drawImage(bg, 0, 0);
 
 		if (mPoint == null) {
@@ -61,8 +61,8 @@ public class CanvasController {
 
 		// 按照自己的需求进行绘制
 		// 真实数据的坐标系原点是此canvas的中心点
-		cx = Double.parseDouble(x) * 20 + 400;
-		cy = 400 - Double.parseDouble(y) * 20;
+		cx = Double.parseDouble(x) * 40 + 300;
+		cy = 300 - Double.parseDouble(y) * 40;
 
 		GraphicsContext gc = canvas2.getGraphicsContext2D();
 
