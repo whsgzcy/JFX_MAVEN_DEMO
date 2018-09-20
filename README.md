@@ -28,3 +28,7 @@
 ## 5、maven c error
 如果出现 maven install error错误但maven build success的情况，你可能要换个jdk版本；
 
+## 6、Retrofit2.0 文件下载
+参考博客：https://juejin.im/post/5aeaa875518825672a02c197
+本文的server为自行部署；
+
