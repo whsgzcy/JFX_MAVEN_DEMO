@@ -19,6 +19,7 @@ public class CanvasApp extends Application {
 		primaryStage.setScene(new Scene(root, 800, 800));
 		primaryStage.show();
 
+
 		downloadPicture();
 
 		// 添加图层的图层
