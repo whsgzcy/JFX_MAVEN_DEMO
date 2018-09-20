@@ -1,6 +1,7 @@
 package com.iwant.canvas;
 
 import java.io.IOException;
+import java.io.InputStream;
 
 import com.iwant.canvas.interf.DownLoadListener;
 
@@ -8,6 +9,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 public class CanvasApp extends Application {
@@ -20,7 +22,7 @@ public class CanvasApp extends Application {
 		primaryStage.show();
 
 
-		downloadPicture();
+//		downloadPicture();
 
 		// 添加图层的图层
 		// https://stackoverrun.com/cn/q/6809673
@@ -52,30 +54,31 @@ public class CanvasApp extends Application {
 
 	}
 
-	private void downloadPicture() {
-		DownloadUtil mDownloadUtil = new DownloadUtil();
-		mDownloadUtil.downloadFile("img/loongman_4.png", new DownLoadListener() {
-			@Override
-			public void onStart() {
-
-			}
-
-			@Override
-			public void onProgress(final int currentLength) {
-				System.out.println("currentLength = " + currentLength);
-			}
-
-			@Override
-			public void onFinish(final String localPath) {
-				System.out.println("localPath = " + localPath);
-			}
-
-			@Override
-			public void onFailure() {
-
-			}
-		});
-	}
+//	private void downloadPicture() {
+//		DownloadUtil mDownloadUtil = new DownloadUtil();
+//		mDownloadUtil.downloadFile("img/loongman_4.png", new DownLoadListener() {
+//			@Override
+//			public void onStart() {
+//
+//			}
+//
+//			@Override
+//			public void onProgress(final int currentLength) {
+//				System.out.println("currentLength = " + currentLength);
+//			}
+//
+//			@Override
+//			public void onFinish(InputStream is) {
+//				Image image = new Image(is);
+//				System.out.println("InputStream = " + is);
+//			}
+//
+//			@Override
+//			public void onFailure() {
+//
+//			}
+//		});
+//	}
 
 	public static void main(String[] args) {
 		launch(args);

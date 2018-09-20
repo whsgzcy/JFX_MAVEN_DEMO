@@ -26,7 +26,7 @@ public class DownloadUtil {
     private Call<ResponseBody> mCall;
 //    private File mFile;
     private Thread mThread;
-    private String mVideoPath; //下载到本地的视频路径
+//    private String mVideoPath; //下载到本地的视频路径
 
     public DownloadUtil() {
         if (mApi == null) {
@@ -79,7 +79,7 @@ public class DownloadUtil {
                 }
             });
 //        } else {
-            downloadListener.onFinish(mVideoPath); //下载完成
+//            downloadListener.onFinish(mVideoPath); //下载完成
 //        }
     }
 	//将下载的文件写入本地存储
@@ -87,7 +87,7 @@ public class DownloadUtil {
     private void writeFile2Disk(Response<ResponseBody> response, DownLoadListener downloadListener) {
         downloadListener.onStart();
         long currentLength = 0;
-        OutputStream os = null;
+//        OutputStream os = null;
 
         InputStream is = response.body().byteStream(); //获取下载输入流
         long totalLength = response.body().contentLength();
@@ -102,7 +102,7 @@ public class DownloadUtil {
                 downloadListener.onProgress((int) (100 * currentLength / totalLength));
                 //当百分比为100时下载结束，调用结束回调，并传出下载后的本地路径
                 if ((int) (100 * currentLength / totalLength) == 100) {
-                    downloadListener.onFinish(mVideoPath); //下载完成
+                    downloadListener.onFinish(is); //下载完成
                 }
             }
         } catch (FileNotFoundException e) {
@@ -110,13 +110,13 @@ public class DownloadUtil {
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
-            if (os != null) {
-                try {
-                    os.close(); //关闭输出流
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
+//            if (os != null) {
+//                try {
+//                    os.close(); //关闭输出流
+//                } catch (IOException e) {
+//                    e.printStackTrace();
+//                }
+//            }
             if (is != null) {
                 try {
                     is.close(); //关闭输入流

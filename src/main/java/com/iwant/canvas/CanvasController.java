@@ -1,5 +1,11 @@
 package com.iwant.canvas;
 
+import java.io.File;
+import java.io.InputStream;
+
+import com.iwant.canvas.interf.DownLoadListener;
+
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
@@ -35,11 +41,49 @@ public class CanvasController {
 	double cx = -1;
 	double cy = -1;
 
+	DownloadUtil mDownloadUtil;
+
 	@FXML
 	public void OnClick() {
-		GraphicsContext gc = canvas1.getGraphicsContext2D();
-		Image bg = new Image(getClass().getResource("map3.png").toString());
-		gc.drawImage(bg, 0, 0);
+
+		if (mDownloadUtil == null) {
+			mDownloadUtil = new DownloadUtil();
+		}
+
+		mDownloadUtil.downloadFile("img/loongman_4.png", new DownLoadListener() {
+			@Override
+			public void onStart() {
+
+			}
+
+			@Override
+			public void onProgress(final int currentLength) {
+				System.out.println("currentLength = " + currentLength);
+			}
+
+			@Override
+			public void onFinish(InputStream is) {
+
+//				Image image = new Image(is, 600, 600, true, true);
+//				GraphicsContext gc = canvas1.getGraphicsContext2D();
+//				gc.drawImage(image, 0, 0);
+
+				System.out.println("InputStream = " + is);
+			}
+
+			@Override
+			public void onFailure() {
+
+			}
+		});
+
+//		 GraphicsContext gc = canvas1.getGraphicsContext2D();
+//		 Image bg = new Image(getClass().getResource("map3.png").toString());
+//		 gc.drawImage(bg, 0, 0);
+
+		 GraphicsContext gc = canvas1.getGraphicsContext2D();
+		 Image bg = new Image("http://192.168.3.19:8080/img/loongman_4.png");
+		 gc.drawImage(bg, 0, 0);
 
 		if (mPoint == null) {
 			mPoint = new Image(getClass().getResource("center.png").toString());
